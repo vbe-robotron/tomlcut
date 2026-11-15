@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tomlcut"
+version = "0.1.0"
+description = "Cut video clips with FFmpeg from TOML definitions and skip duplicate renders"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "vbe-robotron" }]
+keywords = ["ffmpeg", "video", "cli", "toml", "video-editing"]
+classifiers = [
+  "Environment :: Console",
+  "Intended Audience :: End Users/Desktop",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Multimedia :: Video",
+]
+dependencies = []
+
+[project.scripts]
+tomlcut = "tomlcut.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/vbe-robotron/tomlcut"
+Repository = "https://github.com/vbe-robotron/tomlcut"
+
+[tool.hatch.build.targets.wheel]
+packages = ["tomlcut"]
+
+[tool.hatch.build.targets.sdist]
+include = ["tomlcut", "tests", "README.md", "LICENSE", "pyproject.toml"]

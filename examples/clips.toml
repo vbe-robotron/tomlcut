@@ -1,0 +1,30 @@
+# 出力先はこの TOML ファイルからの相対パスで指定
+output_dir = "./out"
+
+# 同じ入力・範囲・出力名・設定の結果が既にあればスキップする
+dedupe = true
+
+[render]
+mode = "encode"      # "encode" または "copy"
+preset = "medium"
+crf = 18
+audio_bitrate = "192k"
+
+[[clips]]
+source = "../input.mp4"
+start = "00:01:23.500"
+duration = 12.5
+name = "intro.mp4"
+
+[[clips]]
+source = "../input.mp4"
+start = 95
+end = 110
+name = "scene-02.mp4"
+
+# 出力名を変えれば同じ区間でも別ファイルとして書き出される
+[[clips]]
+source = "../input.mp4"
+start = 95
+end = 110
+name = "scene-02-archive.mp4"
